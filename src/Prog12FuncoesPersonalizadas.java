@@ -13,12 +13,14 @@ public class Prog12FuncoesPersonalizadas {
 		
 		int higher = max(a, b, c);
 		
-		System.out.println("The highest number is: " + higher + ".");
+		//System.out.println("The highest number is: " + higher + ".");
+		
+		showResult(higher);
 		
 		sc.close();
 	}
 	
-	
+	// Função
 	public static int max(int num1, int num2, int num3) {
 		int higher;
 		if (num1 > num2 && num1 > num3) {
@@ -30,5 +32,10 @@ public class Prog12FuncoesPersonalizadas {
 		}
 		
 		return higher;
+	}
+	
+	// Procedimento
+	public static void showResult(int number) {
+		System.out.println("The highest number is: " + number + ".");
 	}
 }
