@@ -22,5 +22,7 @@ public class Prog02 {
 		System.out.printf("%nPERIMETER = %.2f", rectangle.perimeter());
 		
 		System.out.printf("%nDIAGONAL = %.2f", rectangle.diagonal());
+		
+		sc.close();
 	}
 }
