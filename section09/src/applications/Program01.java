@@ -13,7 +13,7 @@ public class Program01 {
 
 		String name;
 		double price;
-		int quantity = 0;
+		//int quantity = 0;
 		Product objProduct;
 
 		System.out.println("=========================");
