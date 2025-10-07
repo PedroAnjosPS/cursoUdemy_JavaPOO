@@ -17,17 +17,17 @@ public class Program02 {
 		char answer;
 		int userNumber;
 		double deposit = 0.00, withdrawal;
-		BankAccount bankAcc = new BankAccount();
+		BankAccount bankAcc;
 		
 		System.out.print("Create your bank account. Enter your datas:"
 				+ "\nEnter account number: ");
 		userNumber = sc.nextInt();
-		bankAcc.setUserNumber(userNumber);
+		
 		sc.nextLine();
 		
-		System.out.print("Enter account holder: ");
+		System.out.print("Enter account name: ");
 		userName = sc.nextLine();
-		bankAcc.setUserName(userName);
+		
 		
 		
 		
@@ -38,20 +38,30 @@ public class Program02 {
 		if(Character.toUpperCase(answer) == 'Y') {
 			System.out.print("\nEnter your first deposit to add to your bank balance: $");
 			deposit = sc.nextDouble();
-			bankAcc.bankDeposit(deposit);
+			
+			bankAcc = new BankAccount(userNumber, userName, deposit);
 		} 
+			
+		bankAcc = new BankAccount(userNumber, userName);
+		
+		
+		System.out.println("\nAccount data:");
+		System.out.println(bankAcc + "\n");
 		
 		System.out.print("Make a deposit: $");
 		deposit = sc.nextDouble();
 		bankAcc.bankDeposit(deposit);
 		
+		System.out.println("\nAccount data:");
+		System.out.println(bankAcc + "\n");
+		
 		System.out.print("Make a withdrawal: $");
 		withdrawal = sc.nextDouble();
 		bankAcc.bankWithdrawal(withdrawal);
 		
-		System.out.println("\n" + bankAcc);
-		
-		
+		System.out.println("\nAccount data:");
+		System.out.println(bankAcc + "\n");
+				
 		sc.close();
 	}
 

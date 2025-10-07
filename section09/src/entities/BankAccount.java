@@ -2,14 +2,26 @@ package entities;
 
 public class BankAccount {
 	private int userNumber;
-	private String userName;
+	private String userName; // holder - titular
 	private double bankBalance;
 	private static final double TAX = 5.00;
 		
 	// constructor
-	public BankAccount() {
-		super();
+	public BankAccount(int userNumber, String userName) {
+		this.userNumber = userNumber;
+		this.userName = userName;
 	}
+
+	
+
+	public BankAccount(int userNumber, String userName, double initialDeposit) {
+		super();
+		this.userNumber = userNumber;
+		this.userName = userName;
+		bankDeposit(initialDeposit);
+	}
+
+
 
 	// getters and setters
 	public int getUserNumber() {
@@ -17,9 +29,8 @@ public class BankAccount {
 	}
 	
 	public void setUserNumber(int userNumber) {
-		if(this.userNumber == 0) {
+		if(this.userNumber == 0) 
 			this.userNumber = userNumber;
-		} 
 	}
 
 	public String getUserName() {
@@ -44,9 +55,9 @@ public class BankAccount {
 	}
 	
 	public String toString() {
-		return "Account Number: " + this.userNumber 
-				+ "\nAccount Name: " + this.userName
-				+ "\nBank Balance: " + this.bankBalance;
+		return "Account " + this.userNumber 
+				+ ", Holder: " + this.userName
+				+ ", Balance: $ " + String.format("%.2f", this.bankBalance);
 	}
 
 }
