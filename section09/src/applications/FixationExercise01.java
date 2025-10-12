@@ -12,7 +12,9 @@ public class FixationExercise01 {
 		
 		Scanner sc = new Scanner(System.in);
 				
-		String name, people16Years = "";
+		StringBuilder people16Years = new StringBuilder();
+		
+		String name;
 		int numPeople = 0, age, countAge16 = 0;
 		double height, sumHeight = 0;
 		
@@ -21,8 +23,9 @@ public class FixationExercise01 {
 		
 		Person[] person = new Person[numPeople];
 		
+		System.out.println();
+		
 		for(int i = 0; i < numPeople; i++) {
-			System.out.println();
 			
 			sc.nextLine();
 			
@@ -35,7 +38,7 @@ public class FixationExercise01 {
 			age = sc.nextInt();
 			
 			if(age < 16) {
-				people16Years += name + "\n";
+				people16Years.append(name).append("\n");
 				countAge16++;
 			}
 				
@@ -52,10 +55,11 @@ public class FixationExercise01 {
 		
 		double avgHeight = sumHeight / numPeople;
 		
-		System.out.printf("Average height: %.2f.%n"
-				+ "People under 16 years of age: %d.%n"
-				+ "%s",
-				avgHeight, countAge16, people16Years);
+		double age16Percent = (double) countAge16 / numPeople;
+		
+		System.out.printf("Average height: %.2f%n", avgHeight);
+		System.out.printf("People under 16 years of age: %.2f%%%n", age16Percent * 100);
+		System.out.printf("%s", people16Years);
 		
 		
 		sc.close();
