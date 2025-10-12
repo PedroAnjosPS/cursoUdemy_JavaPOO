@@ -19,7 +19,7 @@ public class Vect02 {
 		
 		Product02[] vect = new Product02[n];
 		
-		for(int i = 0; i < n; i++) {
+		for(int i = 0; i < vect.length; i++) {
 			sc.nextLine();
 			
 			System.out.print("Enter a name: ");
@@ -35,13 +35,13 @@ public class Vect02 {
 		
 		double sum = 0.0;
 		
-		for(int i = 0; i < n; i++) {
+		for(int i = 0; i < vect.length; i++) {
 			sum += vect[i].getPrice();
 		}
 		
 		double avg = sum / n;
 		
-		for(int i = 0; i < n; i++) {
+		for(int i = 0; i < vect.length; i++) {
 			System.out.println(vect[i]);
 		} 
 		
