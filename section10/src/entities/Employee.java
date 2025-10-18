@@ -39,5 +39,15 @@ public class Employee {
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
-			
+	
+	public void increaseSalary(double increasePercentage) {
+		double increasedSalary = this.getSalary() * ((increasePercentage / 100.0) + 1.0); 
+		
+		this.setSalary(increasedSalary);
+	}
+	
+	public String toString() {
+		return this.getId() + ", " + this.getName() + ", $" + String.format("%.2f", this.getSalary());
+	}
+	
 }

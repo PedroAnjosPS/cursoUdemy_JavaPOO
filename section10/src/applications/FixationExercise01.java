@@ -3,7 +3,7 @@ package applications;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
-
+import java.util.stream.Collectors;
 import java.util.List;
 
 import entities.Employee;
@@ -15,7 +15,7 @@ public class FixationExercise01 {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		List<Employee> employee = new ArrayList<>();
+		List<Employee> employees = new ArrayList<>();
 		
 		int numEmployees = 0, id = 0;
 		String name = "";
@@ -42,16 +42,36 @@ public class FixationExercise01 {
 			
 			Employee emp = new Employee(id, name, salary);
 			
-			employee.add(emp);
+			employees.add(emp);
 			
 			System.out.println();
 		}
 		
 		System.out.print("Enter the employee id that will have salary increase: ");
-		id = sc.nextInt();
+		int idToIncrease = sc.nextInt();
 		
+		Employee empl = employees.stream()
+				.filter(emp -> emp.getId() == idToIncrease)
+				.findFirst()
+				.orElse(null);
 		
-
+		if(empl == null) {
+			System.out.println("This id does not exist!");
+		} else {
+			System.out.print("Enter the percentage: ");
+			double increasePercentage = sc.nextDouble();
+			
+			empl.increaseSalary(increasePercentage);
+		}
+		
+		System.out.println("\nList of employees:");
+		
+		for(Employee e : employees) {
+			System.out.println(e.toString());
+		}
+					
+		
+		sc.close();
 	}
 
 }
